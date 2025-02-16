@@ -47,27 +47,6 @@ router.get('/:id', async (req, res) => {
     return res.status(200).json(article);
 });
 
-/**
- * @swagger
- * /api/v1/articles/author/{author}:
- *   get:
- *     summary: Find all articles by author
- *     tags:
- *       - Article
- *     parameters:
- *       - name: author
- *         in: path
- *         schema:
- *           type: string
- *           required: true
- *     responses:
- *       200:
- *         description: Returns all articles by author
- */
-router.get('/author/:author', async (req, res) => {
-    let articles = await Article.find({ author: req.params.author });
-    return res.status(200).json(articles);
-});
 
 /**
  * @swagger
