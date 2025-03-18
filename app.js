@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import path from 'path';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 
 
 // Controller
