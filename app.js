@@ -9,6 +9,7 @@ import swaggerUi from 'swagger-ui-express';
 
 // Controller
 import articleController from './controller/articles.js';
+import { METHODS } from 'http';
 
 // Config
 const app = express();
@@ -36,6 +37,12 @@ const __dirname = path.resolve();
 const __swaggerDistPath = path.join(__dirname, "node_modules", "swagger-ui-dist");
 const openapiSpecs = swaggerJSDoc(options);
 app.use('/api-docs', express.static(__swaggerDistPath, { index: false }), swaggerUi.serve, swaggerUi.setup(openapiSpecs));
+
+// cors config 
+app.use(cors({
+    origin: process.env.CLIENT_URL, 
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+  }));
 
 
 // Map url to controller
